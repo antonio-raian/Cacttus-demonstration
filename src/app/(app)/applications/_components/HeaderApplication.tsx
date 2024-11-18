@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { IconFilter, IconSearch } from "@tabler/icons-react";
 import FilterApplication from "./FilterApplication";
 import CreateApplication from "./CreateApplication";
-import { useApplications } from "@/core/hooks";
+import { useApplications, useUser } from "@/core/hooks";
 
 const HeaderApplication = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const { loading, searchTerm, setFilterTerm, setSearchTerm } =
-    useApplications();
+  const { loading } = useUser();
+  const { searchTerm, setFilterTerm, setSearchTerm } = useApplications();
 
   if (loading)
     return (

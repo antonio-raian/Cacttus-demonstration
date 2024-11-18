@@ -5,7 +5,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useHistory } from "@/core/hooks";
+import { useHistory, useUser } from "@/core/hooks";
 import { IconTrash, IconWriting } from "@tabler/icons-react";
 import { format } from "date-fns";
 import React from "react";
@@ -13,7 +13,8 @@ import React from "react";
 // interface TimeLineProps {}
 
 const TimeLine = () => {
-  const { loading, history, _deleteHistory } = useHistory();
+  const { loading } = useUser();
+  const { history, _deleteHistory } = useHistory();
 
   const isFinished = (status: string) => {
     return status === "rejected" || status === "declined";
@@ -67,8 +68,8 @@ const TimeLine = () => {
                   index === 0
                     ? "#3b82f6"
                     : isFinished(attualization.status!)
-                      ? "#CD3232"
-                      : "#27A556"
+                    ? "#CD3232"
+                    : "#27A556"
                 }
               />
             </svg>
