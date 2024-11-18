@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%; /* Fundo escuro neutro */
+    --foreground: 0 0% 90%; /* Texto claro para contraste */
+    --card: 0 0% 15%; /* Cartões um pouco mais claros que o fundo */
+    --card-foreground: 0 0% 90%; /* Texto nos cartões */
+    --popover: 0 0% 12%; /* Fundo de popovers levemente mais claro */
+    --popover-foreground: 0 0% 90%; /* Texto em popovers */
+
+    --primary: 142.1 61.4% 40%; /* Verde Cacto Suave */
+    --primary-foreground: 144.9 100% 90%; /* Texto claro sobre cor primária */
+
+    --secondary: 45 85% 55%; /* Amarelo Sol Suave */
+    --secondary-foreground: 0 0% 100%; /* Texto claro sobre cor secundária */
+
+    --muted: 0 0% 20%; /* Cinza escuro para elementos secundários */
+    --muted-foreground: 0 0% 75%; /* Texto claro sobre áreas muted */
+
+    --accent: 12 35% 30%; /* Marrom Terra mais escuro */
+    --accent-foreground: 0 0% 90%; /* Texto claro sobre cor de destaque */
+
+    --destructive: 0 60.8% 50%; /* Vermelho mais suave para erros */
+    --destructive-foreground: 0 85.7% 98%; /* Texto claro sobre cor de erro */
+
+    --border: 0 0% 20%; /* Bordas levemente destacadas */
+    --input: 0 0% 15%; /* Fundo de inputs mais escuro */
+    --ring: 142.4 71.8% 45%; /* Cor de anel/indicadores */
+
+    --chart-1: 142 70% 45%; /* Cores de gráfico */
+    --chart-2: 48 80% 55%; /* Amarelo Sol suave para gráfico */
+    --chart-3: 30 80% 45%; /* Laranja vibrante */
+    --chart-4: 290 50% 60%; /* Roxo destacando diversidade */
+    --chart-5: 0 75% 55%; /* Vermelho vibrante */
+
+    --radius: 0.85rem;
+
+    --sidebar-background: 0 0% 12%; /* Mais escuro para o sidebar */
+    --sidebar-foreground: 0 0% 90%; /* Texto claro no sidebar */
+    --sidebar-primary: 142.1 61.4% 40%; /* Verde Cacto Suave, alinhado ao primário */
+    --sidebar-primary-foreground: 0 0% 100%; /* Texto claro sobre cor primária */
+    --sidebar-accent: 12 35% 30%; /* Marrom Terra mais escuro */
+    --sidebar-accent-foreground: 0 0% 90%; /* Texto claro sobre cor de destaque */
+    --sidebar-border: 0 0% 20%; /* Bordas sutis */
+    --sidebar-ring: 142.4 71.8% 45%; /* Verde Cacto para o anel */
+  }
+
+  .light {
+    --background: 0 0% 91%; /* Fundo claro inspirado na luz do sol */
+    --foreground: 0 0% 27%; /* Texto escuro para contraste */
+    --card: 30 25% 98%; /* Cartões levemente mais claros */
+    --card-foreground: 0 0% 15%; /* Texto no cartão */
+    --popover: 35 23% 94%; /* Fundo de popovers claro */
+    --popover-foreground: 0 0% 10%; /* Texto em popovers */
+
+    --primary: 142.1 61.4% 47.3%; /* Verde Cacto */
+    --primary-foreground: 144.9 40% 12%; /* Texto sobre cor primária */
+
+    --secondary: 45 85% 50%; /* Amarelo Sol */
+    --secondary-foreground: 0 0% 98%; /* Texto sobre cor secundária */
+
+    --muted: 30 20% 88%; /* Cinza suave para elementos secundários */
+    --muted-foreground: 240 5% 15%; /* Texto sobre áreas muted */
+
+    --accent: 12 35% 40%; /* Marrom Terra */
+    --accent-foreground: 0 0% 95%; /* Texto sobre cor de destaque */
+
+    --destructive: 0 62.8% 40%; /* Vermelho para erros */
+    --destructive-foreground: 0 85.7% 98%; /* Texto sobre cor de erro */
+
+    --border: 0 0% 80%; /* Bordas neutras */
+    --input: 0 0% 95%; /* Fundo de inputs */
+    --ring: 142.4 71.8% 50%; /* Cor de anel/indicadores */
+
+    --chart-1: 142 70% 45%; /* Cores para gráficos */
+    --chart-2: 48 80% 55%; /* Amarelo Sol para gráfico */
+    --chart-3: 30 80% 45%; /* Laranja inspirando otimismo */
+    --chart-4: 290 50% 60%; /* Roxo para diversidade */
+    --chart-5: 0 75% 55%; /* Vermelho vibrante */
+
+    --radius: 0.85rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background bg-no-repeat text-foreground bg-cover leading-loose;
+    overflow: hidden;
+  }
+  .h1 {
+    @apply text-[48px] font-semibold leading-[1.1] xl:text-[88px];
+  }
+  .h2 {
+    @apply text-[36px] font-semibold leading-[1.1] xl:text-[48px];
+  }
+  .h3 {
+    @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
+  }
+  .text-outline {
+    -webkit-text-stroke: 1px #fff;
+  }
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #00ff99;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-4xl px-6;
+  }
+}
+
+/* @layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+} */

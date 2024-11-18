@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id    String  @id @default(cuid())
+  email String  @unique
+  name  String
+  image String?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+
+  applications Application[]
+  skills       Skill[]
+}
+
+model Application {
+  id              Int      @id @default(autoincrement())
+  title           String
+  link            String
+  company         String
+  applicationDate DateTime
+  contractType    String?
+  workStyle       String?
+  compensation    Float
+  anotations      String?
+  status          String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  history History[]
+  skills  Skill[]
+}
+
+model Skill {
+  id    String @id @default(cuid())
+  name  String
+  level String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+
+  users        User[]
+  applications Application[]
+}
+
+model History {
+  id        String  @id @default(cuid())
+  status    String  @default("applied")
+  anotation String?
+
+  createdAt DateTime @default(now())
+
+  applicationId Int
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@unique([applicationId, status])
+}
