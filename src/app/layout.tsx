@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`antialiased`}>
+      <body className="font-['Satoshi']">
         <Warning
           title="Essa é uma versão demonstrativa."
           subtitle="Esta versão não é recomendada para uso em produção. Os dados são armazenados no navegador, o que pode ocasionar perda em caso de reinicialização."

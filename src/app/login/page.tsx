@@ -81,7 +81,7 @@ const Login = () => {
         <div className="flex-col items-center justify-center w-full gap-2.5 inline-flex ">
           <CardTitle className="text-3xl">LOGIN</CardTitle>
           <div className="flex w-[130px] border-t-[1px] border-foreground"></div>
-          <CardDescription className="text-lg font-extralight font-['Montserrat']">
+          <CardDescription className="text-lg font-extralight">
             Bem Vindo ao Cacttus!
           </CardDescription>
         </div>
